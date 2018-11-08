@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*
+|   VERB            URI                     ACTION          ROUTE NAME
+|   GET             /example                index           example.index
+|   GET             /example/create         create          example.create
+|   POST            /example                store           example.store
+|   GET             /example/{key}          show            example.show
+|   GET             /example/{key}/edit     edit            example.edit
+|   PUT/PATCH       /example/{key}          update          example.update
+|   DELETE          /example/{key}          destroy         example.destroy
+*/

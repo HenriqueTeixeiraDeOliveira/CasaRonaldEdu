@@ -25,3 +25,7 @@ Route::get('/', function () {
 |   PUT/PATCH       /example/{key}          update          example.update
 |   DELETE          /example/{key}          destroy         example.destroy
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

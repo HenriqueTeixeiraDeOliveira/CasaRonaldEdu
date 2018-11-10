@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);     // Get all the loans made by the user
+    }
 }

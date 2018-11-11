@@ -26,7 +26,6 @@ $factory->define(App\User::class, function (Faker $faker) {
 });
 
 //--------------------------- LOAN ---------------------------//
-
 $factory->define(App\Loan::class, function (Faker $faker) {
 
     return [
@@ -72,9 +71,26 @@ $factory->define(App\Book::class, function (Faker $faker) {
 
 //--------------------------- DVD ---------------------------//
 $factory->define(App\Dvd::class, function (Faker $faker) {
+    $rating = $faker->randomElement(['Adulto','Livre']);
+    if ($rating == 'Adulto') {
+        $library_id = "DVD" . $faker->numberBetween(100,999);
+    } else {
+        $library_id = "DVD" . $faker->numberBetween(100,999) . "D";
+    }
     return [
+        'library_id' => $library_id,
         'title' => $faker->name,
-        'type' => $faker->randomElement(['Adulto','Infantil']),
+        'description' => $faker->text(60),
+        'year' => $faker->numberBetween(1900,2018),
+        'genre' => $faker->randomElement(['Comédia','Romance','Animação']),
+        'rating' => $faker->randomElement(['Adulto','Infantil']),
         'length' => $faker->numberBetween(1,3) . ":07"
+    ];
+});
+
+//--------------------------- TAGS ---------------------------//
+$factory->define(App\Tag::class, function (Faker $faker) {
+    return [
+        'title' => $faker->word,
     ];
 });

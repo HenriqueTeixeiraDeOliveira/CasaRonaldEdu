@@ -15,8 +15,12 @@ class CreateDvdsTable extends Migration
     {
         Schema::create('dvds', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('library_id');
             $table->string('title');
-            $table->string('type');
+            $table->text('description');
+            $table->unsignedSmallInteger('year');   // Range: 0 to 65535
+            $table->string('genre');
+            $table->string('rating');   // Adults or Kids
             $table->string('length')->nullable();
             $table->timestamps();
         });

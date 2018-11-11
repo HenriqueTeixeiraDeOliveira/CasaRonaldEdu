@@ -21,19 +21,19 @@ class LoansTableSeeder extends Seeder
         ]);
         create(Loan::class, [
             'user_id' => 2, 'loanable_id' => 1, 'loanable_type' => 'dvd',
-            'volunteer_before' => 'Henrique', 'loaned_at' => Carbon::now()->subDays(5)
+            'volunteer_before' => 'Henrique', 'loaned_at' => Carbon::now()->subDays(4)
         ]);
         create(Loan::class, [
             'user_id' => 2, 'loanable_id' => 2, 'loanable_type' => 'dvd',
-            'volunteer_before' => 'Henrique', 'loaned_at' => Carbon::now()->subDays(5)
+            'volunteer_before' => 'Henrique', 'loaned_at' => Carbon::now()->subDays(3)
         ]);
         create(Loan::class, [
             'user_id' => 3, 'loanable_id' => 3, 'loanable_type' => 'book',
-            'volunteer_before' => 'Jéssica', 'loaned_at' => Carbon::now()->subDays(5)
+            'volunteer_before' => 'Jéssica', 'loaned_at' => Carbon::now()->subDays(1)
         ]);
         create(Loan::class, [
             'user_id' => 3, 'loanable_id' => 3, 'loanable_type' => 'dvd',
-            'volunteer_before' => 'Jéssica', 'loaned_at' => Carbon::now()->subDays(5)
+            'volunteer_before' => 'Jéssica', 'loaned_at' => Carbon::now()->subDays(1)
         ]);
     }
 }

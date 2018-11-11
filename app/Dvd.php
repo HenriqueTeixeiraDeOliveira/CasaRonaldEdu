@@ -11,4 +11,8 @@ class Dvd extends Model
     use Loanable, Actionable;
 
     protected $appends = ['isAvailable'];
+
+    public function tags() {
+        return $this->morphToMany(Tag::class,'taggable')->withTimestamps();
+    }
 }

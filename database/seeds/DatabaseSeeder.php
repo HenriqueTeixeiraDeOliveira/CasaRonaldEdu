@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
         DB::table('books')->delete();
         DB::table('dvds')->delete();
         DB::table('users')->delete();
+        DB::table('tags')->delete();
+        DB::table('taggables')->delete();
 
+        $this->call(TagsTableSeeder::class);
         $this->call(BooksTableSeeder::class);
         $this->call(DvdsTableSeeder::class);
         $this->call(UsersTableSeeder::class);

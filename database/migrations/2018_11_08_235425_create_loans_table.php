@@ -16,6 +16,9 @@ class CreateLoansTable extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->unsignedInteger('loanable_id');
+            $table->string('loanable_type');
+
             $table->string('volunteer_before');
             $table->integer('volunteer_id_before');
             $table->dateTime('loaned_at');
@@ -23,16 +26,6 @@ class CreateLoansTable extends Migration
             $table->string('volunteer_id_after')->nullable();
             $table->dateTime('returned_at')->nullable();
             $table->timestamps();
-        });
-
-        Schema::create('loanables', function (Blueprint $table) {       // POLYMORPHIC PIVOT TABLE (MANY TO MANY RELATIONSHIP)
-            $table->increments('id');
-            $table->integer('loan_id');
-            $table->integer('loanable_id');
-            $table->string('loanable_type');
-            $table->timestamps();
-
-            $table->unique(['loan_id','loanable_id','loanable_type']);
         });
     }
 
@@ -45,8 +38,6 @@ class CreateLoansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loanables');
-
         Schema::dropIfExists('loans');
     }
 }

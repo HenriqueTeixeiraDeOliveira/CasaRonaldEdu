@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Traits\Loanable;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Nova\Actions\Actionable;
 
 class Dvd extends Model
 {
-    public function loans()
-    {
-        return $this->morphToMany(Loan::class, 'loanable');         // Get all of the loans for the dvds
-    }
+    use Loanable, Actionable;
+
+    protected $appends = ['isAvailable'];
 }

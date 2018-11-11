@@ -28,15 +28,27 @@ $factory->define(App\User::class, function (Faker $faker) {
 //--------------------------- LOAN ---------------------------//
 
 $factory->define(App\Loan::class, function (Faker $faker) {
+
     return [
         'user_id' => function() {
             return create(App\User::class)->id;
         },
+        'loanable_id' =>  function() {
+            return create(App\Book::class)->id;
+        },
+        'loanable_type' => 'book',
         'volunteer_before' => $faker->name,
         'volunteer_id_before' => $faker->numberBetween(1000,9999),
         'loaned_at' => Carbon::now()->toDateTimeString()
     ];
 });
+
+$factory->state(App\Loan::class, 'dvd', [
+    'loanable_id' =>  function() {
+        return create(App\Dvd::class)->id;
+    },
+    'loanable_type' => 'dvd',
+]);
 
 //--------------------------- BOOK ---------------------------//
 $factory->define(App\Book::class, function (Faker $faker) {

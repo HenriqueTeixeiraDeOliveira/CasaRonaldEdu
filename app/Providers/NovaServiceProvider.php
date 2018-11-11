@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Nova\Metrics\LoansCount;
+use App\Nova\Metrics\LoansPerDay;
+use App\Nova\Metrics\LoansPerItem;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
@@ -56,7 +59,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            new LoansCount,
+            new LoansPerDay,
+            new LoansPerItem
         ];
     }
 

@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        DB::table('loanables')->delete();
         DB::table('loans')->delete();
         DB::table('books')->delete();
         DB::table('dvds')->delete();
